@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Items{% endblock title %}
+
+{% block body %}
+<form method="post" class="view">
+    {% csrf_token %}
+    <h1 class="mb-4">Edit Item</h1>
+    <label for="name">Food Name : </label>
+    <input type="text" id="name" name="name" placeholder="Enter Your Food Item" value="{{item.name}}">
+    <br><br>
+    <label for="price">Price : </label>
+    <input type="number" id="price" name="price" placeholder="Enter Amount" value={{item.price}}>
+    <br><br>
+    <label>veg/Non-Veg :</label>
+
+    <input type="radio" name="foodtype" id="veg" value="veg" {% if item.foodtype == "veg" %} checked{% endif %}>
+    <label for="veg">Veg</label>
+
+    <input type="radio" name="foodtype" id="nonveg" value="nonveg"  {% if item.foodtype == "nonveg" %} checked{% endif %}>
+    <label for="nonveg">Non Veg</label>
+    <br><br>
+    <button class="btn-primary btn">Submit</button>
+</form>
+
+{% endblock body %}

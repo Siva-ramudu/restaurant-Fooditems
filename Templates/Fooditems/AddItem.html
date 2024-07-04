@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Add item page{% endblock title %}
+{% load static %}
+<link rel="stylesheet" href="{% static "Css/style.css" %}">
+
+{% block body %}
+<section class="view">
+    <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <h1 class="mb-4">Add New Item</h1>
+        <label for="name">Food Name : </label>
+        <input type="text" id="name" name="name" placeholder="Enter Your Food Item">
+        <br><br>
+        <label for="price">Price : </label>
+        <input type="number" id="price" name="price" placeholder="Enter Amount">
+        <br><br>
+        <label for="image">Image :</label> 
+        <input type="file" name="image" id="image"><br><br>
+    
+        <label for="Recipe">Recipe :</label>
+        <input type="file" name="Recipe" id="Recipe" value ="Recipe">
+    
+        <br><br>
+        <label>veg/Non-Veg :</label>
+    
+        <input type="radio" name="foodtype" id="veg" value="veg">
+        <label for="veg">Veg</label>
+    
+        <input type="radio" name="foodtype" id="nonveg" value="nonveg">
+        <label for="nonveg">Non Veg</label>
+        <br><br>
+        <button class="btn-primary btn">Submit</button>
+    </form>
+    <br>
+    <a href="{% url "menu" %}"> 
+        <button class="btn-secondary btn">View</button>
+    </a>
+    <a href="{% url "logout" %}"> 
+        <button class="btn-secondary btn">Logout</button>
+    </a>
+</section>
+{% endblock body %}

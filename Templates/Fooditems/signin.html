@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Signin Page{% endblock title %}
+
+{% block body %}
+<section class="view">
+    <form method="post">
+        {% csrf_token %}
+        <h1 class="mb-4">Signin Page</h1>
+        <label for="username">UserName :</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button class="btn-primary btn ">Submit</button>
+    </form>
+
+    <a href="{% url "signup" %}">
+        <button class="btn-secondary mt-3 btn">Signup</button>
+    </a>
+</section>
+{% comment %} <form method="post">
+    {% csrf_token %}
+    <h1 class="mb-4">Signin Page</h1>
+    <label for="username">UserName :</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="password">Password :</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button class="btn-primary btn ">Submit</button>
+
+</form> {% endcomment %}
+
+{% endblock body %}
+
